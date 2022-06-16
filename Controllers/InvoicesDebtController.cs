@@ -1,12 +1,26 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration;
+using CompositeCRM.Data;
 
 namespace CompositeCRM.Controllers
 {
+    [Route("api/[controller]")]
+    [ApiController]
     public class InvoicesDebtController : ControllerBase
     {
-        public IActionResult Index()
+        private readonly IConfiguration configuration;
+        IDataInvoicesDebt dataInvoicesDebt;
+        public InvoicesDebtController(IConfiguration conf, IDataInvoicesDebt invoicesDebt)
         {
-            return View();
+            configuration = conf;
+            dataInvoicesDebt = invoicesDebt;
         }
+
+    }
+
+    [HttpGet]
+    void GetInvoices(int Id)
+    { 
+    
     }
 }
