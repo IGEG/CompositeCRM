@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Configuration;
 using CompositeCRM.Data;
+using CompositeCRM.Models;
 
 namespace CompositeCRM.Controllers
 {
@@ -8,19 +8,25 @@ namespace CompositeCRM.Controllers
     [ApiController]
     public class InvoicesDebtController : ControllerBase
     {
-        private readonly IConfiguration configuration;
-        IDataInvoicesDebt dataInvoicesDebt;
-        public InvoicesDebtController(IConfiguration conf, IDataInvoicesDebt invoicesDebt)
+    
+        private readonly IDataInvoicesDebt dataInvoicesDebt;
+        public InvoicesDebtController(IDataInvoicesDebt invoicesDebt)
         {
-            configuration = conf;
             dataInvoicesDebt = invoicesDebt;
         }
 
+        [HttpGet]
+        public JsonResult GetAllInvoices()
+        {
+           return dataInvoicesDebt.GetAllAnvoicesDebt();
+        }
+
+        [HttpPost]
+
+        public JsonResult EditInvoicesDebt(InvoicesDebt invoicesDebt)
+        {
+            return dataInvoicesDebt.EditInvoicesDebt(invoicesDebt);
+        }
     }
 
-    [HttpGet]
-    void GetInvoices(int Id)
-    { 
-    
-    }
 }

@@ -8,7 +8,9 @@ namespace CompositeCRM.Data
     {
         JsonResult GetInvoicesDebt(int Id);
 
-        void GetAllAnvoicesDebt();
+        JsonResult GetAllAnvoicesDebt();
+
+        JsonResult EditInvoicesDebt(InvoicesDebt invoicesDebt);
 
         void DeleteInvoicesDebt(int Id);
 

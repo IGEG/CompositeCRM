@@ -30,7 +30,7 @@ namespace CompositeCRM
             Json.ReferenceLoopHandling.Ignore).AddNewtonsoftJson(options => options.SerializerSettings.ContractResolver = new DefaultContractResolver());
             services.AddControllers();
             services.AddCors(c => { c.AddPolicy("AllowOrigine", options => options.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());});
-            services.AddScoped(DataInvoicesDebt, IDataInvoicesDebt);
+            services.AddScoped<IDataInvoicesDebt,DataInvoicesDebt>();
         }
 
        
