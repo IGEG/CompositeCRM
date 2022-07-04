@@ -12,7 +12,9 @@ namespace CompositeCRM.Data
 
         JsonResult EditInvoicesDebt(InvoicesDebt invoicesDebt);
 
-        void DeleteInvoicesDebt(int Id);
+        JsonResult ChangeInvoicesDebt(InvoicesDebt invoicesDebt);
+
+        JsonResult DeleteInvoicesDebt(int Id);
 
     }
 }
