@@ -3,6 +3,7 @@ using Microsoft.Extensions.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using CompositeCRM.Models;
+using System.Threading.Tasks;
 
 namespace CompositeCRM.Data
 {
@@ -147,6 +148,7 @@ namespace CompositeCRM.Data
                 connection.Open();
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
+                   
                     reader = command.ExecuteReader();
                     dataTable.Load(reader);
                     reader.Close();

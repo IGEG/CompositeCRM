@@ -24,7 +24,7 @@ namespace CompositeCRM.Controllers
         [HttpGet("{Id}")]
         public JsonResult GetOneInvoice(int Id)
         {
-            return dataInvoicesDebt.GetInvoicesDebt(Id);
+            return  dataInvoicesDebt.GetInvoicesDebt(Id);
         }
 
         [HttpPost]
