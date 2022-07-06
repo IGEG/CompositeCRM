@@ -6,9 +6,10 @@ import { AppComponent } from './app.component';
 import { InvoicesDebtComponent } from './invoices-debt/invoices-debt.component';
 import { GetInvoicesComponent } from './invoices-debt/get-invoices/get-invoices.component';
 import { PostInvoicesComponent } from './invoices-debt/post-invoices/post-invoices.component';
-import { SharedService } from './shared.service';
+import { HttpService } from './http.service';
 import { HttpClientModule} from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -22,9 +23,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgbModule
   ],
-  providers: [SharedService],
+  providers: [HttpService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

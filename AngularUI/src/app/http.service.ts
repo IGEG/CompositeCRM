@@ -5,15 +5,15 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class SharedService {
+export class HttpService {
 
- readonly url = "localhost:61720/api/";
+ readonly url = "http://localhost:61720/api";
 
  constructor( private http: HttpClient) { }
 
  getAllInvoicesDebt():Observable<any[]>
  {
-   return this.http.get<any>(this.url+"InvoicesDebt");
+   return this.http.get<any>(this.url+"/InvoicesDebt");
  }
 
  getOneInvoicesDebt(Id:number):Observable<any>
