@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpService } from '../http.service';
 
 @Component({
   selector: 'app-invoices-debt',
@@ -7,9 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class InvoicesDebtComponent implements OnInit {
 
-  constructor() { }
+  constructor(private httpService: HttpService) { }
 
   ngOnInit(): void {
+    this.updateInvoicesDebtArray();
+  
+  }
+
+  invoicesDebtArray: any= [];
+
+  updateInvoicesDebtArray()
+  {
+    this.httpService.getAllInvoicesDebt().subscribe(data=>{this.invoicesDebtArray=data;});
   }
 
 }
