@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using CompositeCRM.Data;
 using CompositeCRM.Models;
+using System.Threading.Tasks;
 
 namespace CompositeCRM.Controllers
 {
@@ -16,34 +17,34 @@ namespace CompositeCRM.Controllers
         }
 
         [HttpGet]
-        public JsonResult GetAllInvoices()
+        public async Task<JsonResult> GetAllInvoicesAsync()
         {
-           return dataInvoicesDebt.GetAllAnvoicesDebt();
+           return await dataInvoicesDebt.GetAllAnvoicesDebtAsync();
         }
 
         [HttpGet("{Id}")]
-        public JsonResult GetOneInvoice(int Id)
+        public async Task<JsonResult> GetOneInvoiceAsync(int Id)
         {
-            return  dataInvoicesDebt.GetInvoicesDebt(Id);
+            return await  dataInvoicesDebt.GetInvoicesDebtAsync(Id);
         }
 
         [HttpPost]
 
-        public JsonResult EditInvoicesDebt(InvoicesDebt invoicesDebt)
+        public async Task<JsonResult> EditInvoicesDebtAsync(InvoicesDebt invoicesDebt)
         {
-            return dataInvoicesDebt.EditInvoicesDebt(invoicesDebt);
+            return await dataInvoicesDebt.EditInvoicesDebtAsync(invoicesDebt);
         }
 
         [HttpPut]
-        public JsonResult ChangeInvoicesDebt(InvoicesDebt invoicesDebt)
+        public async Task<JsonResult> ChangeInvoicesDebtAsync(InvoicesDebt invoicesDebt)
         {
-            return dataInvoicesDebt.ChangeInvoicesDebt(invoicesDebt);
+            return await dataInvoicesDebt.ChangeInvoicesDebtAsync(invoicesDebt);
         }
 
         [HttpDelete("{id}")]
-        public JsonResult DeleteInvoicesDebt(int Id)
+        public Task<JsonResult> DeleteInvoicesDebtAsync(int Id)
         {
-            return dataInvoicesDebt.DeleteInvoicesDebt(Id);
+            return dataInvoicesDebt.DeleteInvoicesDebtAsync(Id);
         }
     }
 

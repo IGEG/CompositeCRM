@@ -15,7 +15,7 @@ namespace CompositeCRM.Data
             configuration = conf;
         }
 
-        public JsonResult ChangeInvoicesDebt(InvoicesDebt invoicesDebt)
+        public async Task<JsonResult> ChangeInvoicesDebtAsync(InvoicesDebt invoicesDebt)
         {
             string query = @"update InvoicesDebts set
        DepartmentNameDebt = N'" + invoicesDebt.DepartmentNameDebt +
@@ -41,7 +41,7 @@ namespace CompositeCRM.Data
                 connection.Open();
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
-                    reader = command.ExecuteReader();
+                    reader = await command.ExecuteReaderAsync();
                     dataTable.Load(reader);
                     reader.Close();
 
@@ -52,7 +52,7 @@ namespace CompositeCRM.Data
             return new JsonResult("Данные изменены!");
         }
 
-        public JsonResult DeleteInvoicesDebt(int Id)
+        public async Task<JsonResult> DeleteInvoicesDebtAsync(int Id)
         {
             string query = @"delete from InvoicesDebts where Id = "+Id+@"";
 
@@ -66,7 +66,7 @@ namespace CompositeCRM.Data
                 {
                     using (SqlCommand command = new SqlCommand(query, connection))
                     {
-                        reader = command.ExecuteReader();
+                        reader = await command.ExecuteReaderAsync();
                         data.Load(reader);
                         reader.Close();
                     }
@@ -76,7 +76,7 @@ namespace CompositeCRM.Data
             return new JsonResult("Данные успешно удалены");
         }
 
-        public JsonResult EditInvoicesDebt(InvoicesDebt invoicesDebt)
+        public async Task<JsonResult> EditInvoicesDebtAsync(InvoicesDebt invoicesDebt)
         {
             string query = @"insert into InvoicesDebts values (N'" + invoicesDebt.DepartmentNameDebt + @"','" + invoicesDebt.DateInvoicesDebt + @"'," + invoicesDebt.InvoiceNumberDebt +
                 @",'" + invoicesDebt.ClientNameDebt + @"'," + invoicesDebt.InvoiceAmountDebt + @",N'" + invoicesDebt.EmployeeFullNameDebt + @"'," + invoicesDebt.INNClientDebt +
@@ -94,7 +94,7 @@ namespace CompositeCRM.Data
                 connection.Open();
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
-                    reader = command.ExecuteReader();
+                    reader = await command.ExecuteReaderAsync();
                     dataTable.Load(reader);
                     reader.Close();
 
@@ -105,7 +105,7 @@ namespace CompositeCRM.Data
             return new JsonResult("Данные добавлены!");
         }
 
-        public JsonResult GetAllAnvoicesDebt()
+        public async Task<JsonResult> GetAllAnvoicesDebtAsync()
         {
             string query = @"select DepartmentNameDebt, DateInvoicesDebt, InvoiceNumberDebt, ClientNameDebt," +
                 "InvoiceAmountDebt, EmployeeFullNameDebt, INNClientDebt, InvoiseStatusDebt from dbo.InvoicesDebts";
@@ -121,7 +121,7 @@ namespace CompositeCRM.Data
                 connection.Open();
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
-                    reader = command.ExecuteReader();
+                    reader = await command.ExecuteReaderAsync();
                     dataTable.Load(reader);
                     reader.Close();
 
@@ -132,7 +132,7 @@ namespace CompositeCRM.Data
             return new JsonResult(dataTable);
         }
 
-        public JsonResult GetInvoicesDebt(int Id)
+        public async Task<JsonResult> GetInvoicesDebtAsync(int Id)
         {
             string query = @"select DepartmentNameDebt, DateInvoicesDebt, InvoiceNumberDebt, ClientNameDebt," +
                 "InvoiceAmountDebt, EmployeeFullNameDebt, INNClientDebt, InvoiseStatusDebt from dbo.InvoicesDebts where Id="+Id+@"";
@@ -149,7 +149,7 @@ namespace CompositeCRM.Data
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
                    
-                    reader = command.ExecuteReader();
+                    reader = await command.ExecuteReaderAsync();
                     dataTable.Load(reader);
                     reader.Close();
 

@@ -1,1 +1,44 @@
-<p>post-invoices works!</p>
+<form>
+    <div class="mb-3">
+        <label for="DepartmentNameDebt" class="form-label">Отдел</label>   
+        <select [(ngModel)]="DepartmentNameDebt" class="form-select" type="text">
+            <option>Выбрать</option>
+            <option>Индустриальный</option>
+            <option>Антикоррозионный</option>
+          </select>
+    </div>
+    <div class="mb-3">
+        <label for="DateInvoicesDebt" class="form-label">Дата оформления</label>
+        <input type="date" [(ngModel)]="DateInvoicesDebt" class="form-control" placeholder="дата в формате ГГГГ-ММ-ДД">
+    </div>
+    <div class="mb-3">
+        <label for="InvoiceNumberDebt" class="form-label">Номер счета</label>
+        <input type="text" [(ngModel)]="InvoiceNumberDebt" class="form-control" placeholder="номер счета">
+    </div>
+    <div class="mb-3">
+        <label for="ClientNameDebt" class="form-label">Название конрагента</label>
+        <input type="text" [(ngModel)]="ClientNameDebt" class="form-control" placeholder="компания">
+    </div>
+    <div class="mb-3">
+        <label for="InvoiceAmountDebt" class="form-label">Сумма счета без указания валюты</label>
+        <input type="text" [(ngModel)]="InvoiceAmountDebt" class="form-control" placeholder="">
+    </div>
+    <div class="mb-3">
+        <label for="EmployeeFullNameDebt" class="form-label">Имя сотрудника</label>
+        <input type="text" [(ngModel)]="EmployeeFullNameDebt" class="form-control" placeholder="">
+    </div>
+    <div class="mb-3">
+        <label for="INNClientDebt" class="form-label">ИНН клиента</label>
+        <input type="number" [(ngModel)]="INNClientDebt" class="form-control" placeholder="ИНН">
+    </div>
+    <div class="mb-3">
+        <label for="InvoiseStatusDebt" class="form-label">Статус счета</label>
+        <select [(ngModel)]="InvoiseStatusDebt" class="form-select" type="text">
+            <option>Выбрать</option>
+            <option>Т</option>
+            <option>П</option>
+          </select>
+    </div>
+    <button type="submit" class="btn btn-outline-secondary m-2">Добавить</button>
+    <button type="submit" class="btn btn-outline-secondary m-2">Изменить</button>
+</form>

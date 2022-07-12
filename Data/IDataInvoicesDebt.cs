@@ -7,15 +7,15 @@ namespace CompositeCRM.Data
 {
     public interface IDataInvoicesDebt
     {
-        JsonResult GetInvoicesDebt(int Id);
+        Task<JsonResult> GetInvoicesDebtAsync(int Id);
 
-        JsonResult GetAllAnvoicesDebt();
+        Task<JsonResult> GetAllAnvoicesDebtAsync();
 
-        JsonResult EditInvoicesDebt(InvoicesDebt invoicesDebt);
+        Task<JsonResult> EditInvoicesDebtAsync(InvoicesDebt invoicesDebt);
 
-        JsonResult ChangeInvoicesDebt(InvoicesDebt invoicesDebt);
+        Task<JsonResult> ChangeInvoicesDebtAsync(InvoicesDebt invoicesDebt);
 
-        JsonResult DeleteInvoicesDebt(int Id);
+        Task<JsonResult> DeleteInvoicesDebtAsync(int Id);
 
     }
 }
