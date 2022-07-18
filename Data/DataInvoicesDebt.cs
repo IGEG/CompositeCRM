@@ -107,7 +107,7 @@ namespace CompositeCRM.Data
 
         public async Task<JsonResult> GetAllAnvoicesDebtAsync()
         {
-            string query = @"select DepartmentNameDebt, DateInvoicesDebt, InvoiceNumberDebt, ClientNameDebt," +
+            string query = @"select Id,DepartmentNameDebt, DateInvoicesDebt, InvoiceNumberDebt, ClientNameDebt," +
                 "InvoiceAmountDebt, EmployeeFullNameDebt, INNClientDebt, InvoiseStatusDebt from dbo.InvoicesDebts";
 
             string connectionString = configuration.GetConnectionString("InvoicesDebt");
@@ -134,7 +134,7 @@ namespace CompositeCRM.Data
 
         public async Task<JsonResult> GetInvoicesDebtAsync(int Id)
         {
-            string query = @"select DepartmentNameDebt, DateInvoicesDebt, InvoiceNumberDebt, ClientNameDebt," +
+            string query = @"select Id,DepartmentNameDebt, DateInvoicesDebt, InvoiceNumberDebt, ClientNameDebt," +
                 "InvoiceAmountDebt, EmployeeFullNameDebt, INNClientDebt, InvoiseStatusDebt from dbo.InvoicesDebts where Id="+Id+@"";
 
             string connectionString = configuration.GetConnectionString("InvoicesDebt");

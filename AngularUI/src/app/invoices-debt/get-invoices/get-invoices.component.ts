@@ -10,9 +10,6 @@ export class GetInvoicesComponent implements OnInit {
 
   constructor(private httpSevice: HttpService) { }
 
-  ngOnInit(): void {
-    this.updateInvoicesDebtArray();
-  }
 
   invoicesDebtArray: any = [];
 
@@ -20,9 +17,15 @@ export class GetInvoicesComponent implements OnInit {
   ActivateAddInvDept: boolean = false;
   invDept: any;
 
+  ngOnInit(): void {
+    this.updateInvoicesDebtArray();
+  }
+
+
   addClick() {
     this.invDept =
     {
+      id:0,
       DepartmentNameDebt: "",
       DateInvoicesDebt: "",
       InvoiceNumberDebt: 0,
@@ -41,6 +44,12 @@ export class GetInvoicesComponent implements OnInit {
     this.ModalTitle = "Изменение документа";
     this.ActivateAddInvDept = true;
   };
+
+  deleteClick(item:any)
+  {
+this.httpSevice.deleteInvoicesDebt(item.Id).subscribe(data=>{alert(data.toString());});
+this.updateInvoicesDebtArray();
+  }
 
   closeClick() {
     this.ActivateAddInvDept = false;

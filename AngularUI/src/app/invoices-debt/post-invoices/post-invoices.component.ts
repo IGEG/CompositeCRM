@@ -11,7 +11,7 @@ export class PostInvoicesComponent implements OnInit {
   constructor(private httpSevice: HttpService) { }
 
   @Input() invDept: any;
-
+  Id?:string;
   DepartmentNameDebt?: string;
   DateInvoicesDebt?: string;
   InvoiceNumberDebt?: string;
@@ -22,6 +22,7 @@ export class PostInvoicesComponent implements OnInit {
   InvoiseStatusDebt?: string;
 
   ngOnInit(): void {
+    this.Id=this.invDept.Id;
     this.DepartmentNameDebt = this.invDept.DepartmentNameDebt;
     this.DateInvoicesDebt = this.invDept.DateInvoicesDebt;
     this.InvoiceNumberDebt = this.invDept.InvoiceNumberDebt;
@@ -36,6 +37,7 @@ export class PostInvoicesComponent implements OnInit {
   addInvoicesDebt() {
     var invoiceDebt =
     {
+      Id:this.Id,
       DepartmentNameDebt: this.DepartmentNameDebt,
       DateInvoicesDebt: this.DateInvoicesDebt,
       InvoiceNumberDebt: this.InvoiceNumberDebt,
@@ -51,6 +53,7 @@ export class PostInvoicesComponent implements OnInit {
   changeInvoicesDebt() {
     var invoiceDebt =
     {
+      Id:this.Id,
       DepartmentNameDebt: this.DepartmentNameDebt,
       DateInvoicesDebt: this.DateInvoicesDebt,
       InvoiceNumberDebt: this.InvoiceNumberDebt,

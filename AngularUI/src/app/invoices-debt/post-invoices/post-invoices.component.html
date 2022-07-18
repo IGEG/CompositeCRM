@@ -9,7 +9,7 @@
     </div>
     <div class="mb-3">
         <label for="DateInvoicesDebt" class="form-label">Дата оформления</label>
-        <input type="date" [(ngModel)]="DateInvoicesDebt" class="form-control" placeholder="дата в формате ГГГГ-ММ-ДД">
+        <input type="text" [(ngModel)]="DateInvoicesDebt" class="form-control" placeholder="дата в формате ГГГГ-ММ-ДД">
     </div>
     <div class="mb-3">
         <label for="InvoiceNumberDebt" class="form-label">Номер счета</label>
@@ -39,6 +39,6 @@
             <option>П</option>
           </select>
     </div>
-    <button type="submit" (click)="addInvoicesDebt()"  class="btn btn-outline-secondary m-2">Добавить</button>
-    <button type="submit" (click)="changeInvoicesDebt()"  class="btn btn-outline-secondary m-2">Изменить</button>
+    <button type="submit"  (click)="addInvoicesDebt()"  class="btn btn-outline-secondary m-2" *ngIf="invDept.Id==0">Добавить</button>
+    <button type="submit" (click)="changeInvoicesDebt()"  class="btn btn-outline-secondary m-2" *ngIf="invDept.id!=0">Изменить</button>
 </form>
