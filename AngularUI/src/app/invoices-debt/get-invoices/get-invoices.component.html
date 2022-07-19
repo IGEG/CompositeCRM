@@ -45,9 +45,9 @@
             <td>{{item.INNClientDebt}}</td>
             <td>{{item.InvoiseStatusDebt}}</td>
             <td>
-                <button  class="btn btn-outline-secondary m-1 p-1" data-bs-toggle="modal" data-bs-target="#exampleModal"
+                <button  type="button" class="btn btn-outline-secondary m-1 p-1" data-bs-toggle="modal" data-bs-target="#exampleModal"
                 (click)="changeClick(item)">Изменить</button>
-                <button  class="btn btn-outline-secondary m-1 p-1" (click)="deleteClick(item)">Удалить</button>
+                <button type="button"  class="btn btn-outline-secondary m-1 p-1" (click)="deleteClick(item)">Удалить</button>
             </td>
         </tr>
     </tbody>
