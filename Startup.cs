@@ -31,6 +31,7 @@ namespace CompositeCRM
             services.AddControllers();
             services.AddCors(c => { c.AddPolicy("AllowOrigine", options => options.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());});
             services.AddScoped<IDataInvoicesDebt,DataInvoicesDebt>();
+            services.AddScoped<IDataDocument, DataDocument>();
         }
 
        
