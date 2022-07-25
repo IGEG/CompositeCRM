@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Input } from '@angular/core';
+import { HttpService } from 'src/app/http.service';
 
 @Component({
   selector: 'app-post-document',
@@ -8,6 +10,7 @@ import { Component, OnInit } from '@angular/core';
 export class PostDocumentComponent implements OnInit {
 
   constructor() { }
+  @Input() newDocument:any;
 
   ngOnInit(): void {
   }

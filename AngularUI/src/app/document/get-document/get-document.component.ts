@@ -16,9 +16,28 @@ export class GetDocumentComponent implements OnInit {
 
   documentArray: any = [];
 
+  ModalTitle?:string;
+
+  newDocument: any;
+
+  ActivatedDocument: boolean=false;
+
 updateDocumentArray()
 {
   this.httpService.getAllDocuments().subscribe(data =>{this.documentArray=data});
+}
+
+addClick()
+{
+  this.newDocument=
+  {
+    Clients:"",
+    TypeDoc:"",
+    DateOfAdded:"",
+    Employer:""
+  };
+this.ActivatedDocument=true;
+
 }
 changeClick(item:any)
 {
