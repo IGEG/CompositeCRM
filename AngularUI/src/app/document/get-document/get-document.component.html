@@ -1,6 +1,30 @@
+<button type="button" class="btn btn-outline-success m-2 p-2" data-bs-toggle="modal" data-bs-target="#exampleModal"
+ (click)="addClick()" data-backdrop="static" data-keybord="false">
+    Добавить документ
+</button>
+<div class="modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">{{ModalTitle}}</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <app-post-document [newDocument] = "newDocument" *ngIf="ActivatedDocument"></app-post-document>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
 <table class="table table-stripped">
     <thead>
-        <tr>
+        <tr class="text-center">
             <th>Клиент</th>
             <th>Тип документа</th>
             <th>Дата</th>
