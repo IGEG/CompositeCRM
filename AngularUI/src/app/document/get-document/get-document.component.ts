@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpService } from 'src/app/http.service';
 
 @Component({
   selector: 'app-get-document',
@@ -7,9 +8,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GetDocumentComponent implements OnInit {
 
-  constructor() { }
+  constructor(private httpService: HttpService) { }
 
   ngOnInit(): void {
+    this.updateDocumentArray();
   }
 
+  documentArray: any = [];
+
+updateDocumentArray()
+{
+  this.httpService.getAllDocuments().subscribe(data =>{this.documentArray=data});
+}
+changeClick(item:any)
+{
+
+}
+deleteClick(item:any)
+{
+
+}
 }
