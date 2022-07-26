@@ -1,1 +1,20 @@
-<p>post-document works!</p>
+<form>
+    <div class="mb-3">
+        <label for="Clients" class="form-label">Клиент</label>   
+        <input type="text" [(ngModel)]="Clients" class="form-control" placeholder="Название компании">
+    </div>
+    <div class="mb-3">
+        <label for="TypeDoc" class="form-label">Тип докумнета</label>
+        <input type="text" [(ngModel)]="TypeDoc" class="form-control" placeholder="документ">
+    </div>
+    <div class="mb-3">
+        <label for="DateOfAdded" class="form-label">Дата документа</label>
+        <input type="text" [(ngModel)]="DateOfAdded" class="form-control" placeholder="дата">
+    </div>
+    <div class="mb-3">
+        <label for="Employer" class="form-label">Сотрудник</label>
+        <input type="text" [(ngModel)]="Employer" class="form-control" placeholder="сотрудник">
+    </div>
+    <button type="submit"  (click)="addDocument()"  class="btn btn-outline-secondary m-2" >Добавить</button>
+    <button type="submit" (click)="changeDocument()"  class="btn btn-outline-secondary m-2">Изменить</button>
+</form>

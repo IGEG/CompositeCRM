@@ -37,14 +37,25 @@ addClick()
     Employer:""
   };
 this.ActivatedDocument=true;
-
+this.ModalTitle="Добавлние документа";
 }
 changeClick(item:any)
 {
+this.newDocument=item;
+this.ModalTitle="Изменение документа";
+this.ActivatedDocument=true;
 
 }
 deleteClick(item:any)
 {
-
+this.httpService.deleteDocument(item.Id).subscribe(data=>{alert(data.toString());});
+this.updateDocumentArray();
 }
+
+closeClick()
+{
+  this.ActivatedDocument=false;
+  this.updateDocumentArray();
+}
+
 }
