@@ -31,6 +31,7 @@ addClick()
 {
   this.newDocument=
   {
+    Id:"",
     Clients:"",
     TypeDoc:"",
     DateOfAdded:"",
