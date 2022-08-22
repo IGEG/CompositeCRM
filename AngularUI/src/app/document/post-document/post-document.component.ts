@@ -11,13 +11,14 @@ export class PostDocumentComponent implements OnInit {
 
   constructor(private httpService: HttpService) { }
   @Input() newDocument:any;
-
+  Id?:string;
   Clients?:string;
   TypeDoc?: string;
   DateOfAdded?:string;
   Employer?:string;
 
   ngOnInit(): void {
+    this.Id=this.newDocument.Id;
     this.Clients=this.newDocument.Clients;
     this.TypeDoc=this.newDocument.TypeDoc;
     this.DateOfAdded=this.newDocument.DateOfAdded;
@@ -28,6 +29,7 @@ export class PostDocumentComponent implements OnInit {
   {
     var document =
     {
+      Id:this.Id,
       Clients:this.Clients,
       TypeDoc:this.TypeDoc,
       DateOfAdded:this.DateOfAdded,
